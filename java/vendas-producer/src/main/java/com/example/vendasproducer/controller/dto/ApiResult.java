@@ -9,4 +9,12 @@ public class ApiResult {
         this.status = status;
         this.message = message;
     }
+
+    public long getStatus() {
+        return status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

@@ -21,7 +21,7 @@ public class ProdutoController {
 	@Autowired
 	private ProducerService producer;
 
-	@GetMapping(value = { "/", "" }, produces = "application/json")
+	@GetMapping(value = "/", produces = "application/json")
 	public ApiResult sync() {
 		return new ApiResult(OK.value(), "OK");
 	}
