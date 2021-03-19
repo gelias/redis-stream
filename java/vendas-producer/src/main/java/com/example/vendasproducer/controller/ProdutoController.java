@@ -29,7 +29,7 @@ public class ProdutoController {
 	@PostMapping(value = "/", produces = "application/json")
 	public ApiResult sync(@RequestBody Synchronism dto) {
 		logger.info("Receiving synchronism dto");
-		producer.publicarEventos(dto);
+		producer.publicarEventos(dto.refreshValues());
 		return new ApiResult(OK.value(), "OK");
 	}
 }

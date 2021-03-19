@@ -1,5 +1,7 @@
 package com.example.vendasproducer.controller.dto;
 
+import java.util.UUID;
+
 public class Synchronism {
 
     private String data;
@@ -10,13 +12,13 @@ public class Synchronism {
     }
 
     public Synchronism(String data, String agent, String customer){
-        this.data = data;
-        this.agent = agent;
-        this.customer = customer;
+        this.data = UUID.randomUUID() + data;
+        this.agent = agent + System.currentTimeMillis();
+        this.customer = customer + System.currentTimeMillis();
     }
 
     public String getData() {
-        return data;
+        return this.data;
     }
 
     public String getAgent() {
@@ -25,5 +27,12 @@ public class Synchronism {
 
     public String getCustomer() {
         return customer;
+    }
+
+    public Synchronism refreshValues() {
+        this.data = UUID.randomUUID() + data;
+        this.agent = agent + System.currentTimeMillis();
+        this.customer = customer + System.currentTimeMillis();
+        return this;
     }
 }
